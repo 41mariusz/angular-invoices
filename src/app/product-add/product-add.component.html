@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Name</label>
+        <input type="text" class="form-control" 
+          formControlName="InputName" 
+          #InputName />
+      </div>
+      <div *ngIf="angForm.controls['InputName'].invalid && (angForm.controls['InputName'].dirty || angForm.controls['InputName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['InputName'].errors.required">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Description</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="InputDescription" 
+        #InputDescription></textarea>
+      </div>
+      <div *ngIf="angForm.controls['InputDescription'].invalid && (angForm.controls['InputDescription'].dirty || angForm.controls['InputDescription'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['InputDescription'].errors.required">
+          Description is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Tax</label>
+        <input type="text" class="form-control" 
+          formControlName="InputTax" 
+          #InputTax
+        />
+      </div>
+      <div *ngIf="angForm.controls['InputTax'].invalid && (angForm.controls['InputTax'].dirty || angForm.controls['InputTax'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['InputTax'].errors.required">
+          Tax is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Amount</label>
+        <input type="text" class="form-control" 
+          formControlName="InputAmount" 
+          #InputAmount
+        />
+      </div>
+      <div *ngIf="angForm.controls['InputAmount'].invalid && (angForm.controls['InputAmount'].dirty || angForm.controls['InputAmount'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['InputAmount'].errors.required">
+          Amount is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Date</label>
+        <input type="text" class="form-control" 
+          formControlName="InputDate" 
+          #InputDate
+        />
+      </div>
+      <div *ngIf="angForm.controls['InputDate'].invalid && (angForm.controls['InputDate'].dirty || angForm.controls['InputDate'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['InputDate'].errors.required">
+          Date is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "addProduct(InputName.value, InputDescription.value, InputTax.value, InputAmount.value, InputDate.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Create Product
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
